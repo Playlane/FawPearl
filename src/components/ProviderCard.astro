@@ -1,0 +1,79 @@
+---
+/** Provider listing card: photo, credentials, focus areas and booking. */
+import Icon from './Icon.astro';
+import { provider, site } from '../data/site';
+
+interface Props {
+  full?: boolean;
+}
+const { full = false } = Astro.props;
+---
+
+<article class:list={['provider', { 'provider--full': full }]} data-reveal>
+  <div class="provider__media">
+    <img src={provider.photo} alt={`${provider.name}, ${provider.credentials}`} width="600" height="600" loading="lazy" />
+    {site.acceptingNewPatients && <span class="provider__status"><span class="dot" aria-hidden="true" />Accepting new patients</span>}
+  </div>
+  <div class="provider__body">
+    <h3 class="provider__name">
+      {provider.name}<span class="provider__cred">{provider.credentials}</span>
+    </h3>
+    <p class="provider__title">{provider.title}</p>
+    {full ? provider.bio.map((p) => <p>{p}</p>) : <p>{provider.summary}</p>}
+    <ul class="provider__facts">
+      <li><Icon name="shield" size={20} /><span><strong>Payment:</strong> Insurance &amp; self-pay</span></li>
+      <li><Icon name="chat" size={20} /><span><strong>Focus:</strong> {provider.focus.join(', ')}</span></li>
+      <li><Icon name="video" size={20} /><span><strong>Visits:</strong> {provider.visitTypes.join(', ')}</span></li>
+      <li><Icon name="clock" size={20} /><span><strong>Availability:</strong> Weekdays until 9 pm, Saturdays</span></li>
+    </ul>
+    <div class="btn-row">
+      <a class="btn btn--sun" href="/book">Book now</a>
+      {!full && <a class="btn btn--outline" href="/provider">View full profile</a>}
+    </div>
+  </div>
+</article>
+
+<style>
+  .provider {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    box-shadow: var(--shadow-md);
+  }
+  .provider--full { grid-template-columns: 320px 1fr; align-items: start; }
+  .provider__media { position: relative; min-width: 0; }
+  .provider__media img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-md); background: var(--color-sky); }
+  .provider__status {
+    position: absolute;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-pill);
+    background: #fff;
+    color: var(--color-navy-ink);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+  .provider__body { min-width: 0; }
+  .provider__name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; margin-bottom: 0.2rem; font-size: var(--text-2xl); }
+  .provider__cred { padding: 0.15rem 0.55rem; border-radius: 6px; background: var(--color-sun-soft); color: var(--color-navy); font-size: var(--text-xs); font-weight: 750; letter-spacing: 0.04em; }
+  .provider__title { color: var(--color-turquoise-deep); font-weight: 650; }
+  .provider__body > p { color: var(--color-muted); }
+  .provider__facts { list-style: none; margin: 1.25rem 0 1.5rem; padding: 1rem 0; border-block: 1px solid var(--color-line); display: grid; gap: 0.6rem; font-size: var(--text-sm); }
+  .provider__facts li { display: flex; gap: 0.6rem; align-items: flex-start; }
+  .provider__facts :global(svg) { flex: none; color: var(--color-navy); margin-top: 0.1rem; }
+  .provider__facts strong { color: var(--color-navy-ink); }
+  @media (max-width: 760px) {
+    .provider, .provider--full { grid-template-columns: 1fr; }
+    .provider__media { max-width: 320px; }
+  }
+</style>

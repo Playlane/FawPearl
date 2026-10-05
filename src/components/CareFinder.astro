@@ -1,0 +1,152 @@
+---
+/**
+ * "Find the right care" search card. Sends people to /book with their
+ * choices in the address (e.g. /book?care=medication-management&state=MD),
+ * where the matching visit is pre-selected.
+ */
+import Icon from './Icon.astro';
+import { services, firstVisit } from '../data/services';
+import { states } from '../data/states';
+import { site } from '../data/site';
+
+interface Props {
+  overlap?: boolean;
+}
+const { overlap = true } = Astro.props;
+const careOptions = services.filter((s) => s.category !== 'support');
+---
+
+<section class:list={['finder', { 'finder--overlap': overlap }]} aria-labelledby="finder-title">
+  <div class="container">
+    <form class="finder__card" action="/book" method="get" data-care-finder data-states={JSON.stringify(site.statesServed)}>
+      <div class="finder__head">
+        <h2 id="finder-title">Find the right care for you</h2>
+        <p class="muted">Answer three quick questions and we'll show you how to book.</p>
+      </div>
+
+      <fieldset class="finder__care">
+        <legend>Type of care</legend>
+        <div class="finder__options">
+          {
+            careOptions.map((s) => (
+              <label class="option">
+                <input type="radio" name="care" value={s.slug} checked={s.slug === firstVisit.slug} />
+                <span>
+                  <Icon name={s.icon} size={20} />
+                  {s.name}
+                </span>
+              </label>
+            ))
+          }
+          <label class="option">
+            <input type="radio" name="care" value="facility" />
+            <span><Icon name="building" size={20} />Facility care</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="finder__row">
+        <div class="field">
+          <label for="finder-for">Who is the care for?</label>
+          <select class="select" id="finder-for" name="for">
+            <option value="self">Myself</option>
+            <option value="loved-one">A loved one</option>
+            <option value="resident">A facility resident</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="finder-state">Where are you located?</label>
+          <select class="select" id="finder-state" name="state">
+            <option value="">Select your state</option>
+            {states.map((s) => <option value={s.code}>{s.name}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="finder-pay">How will you pay?</label>
+          <select class="select" id="finder-pay" name="pay">
+            <option value="insurance">Insurance</option>
+            <option value="self-pay">Self-pay</option>
+          </select>
+        </div>
+        <button class="btn btn--navy btn--lg finder__submit" type="submit">
+          See booking options <Icon name="arrow" />
+        </button>
+      </div>
+      <p class="finder__notice" role="status" hidden data-finder-notice></p>
+    </form>
+  </div>
+</section>
+
+<style>
+  .finder { position: relative; z-index: 2; padding-bottom: var(--section); }
+  .finder--overlap { margin-top: clamp(-6rem, -9vw, -4.5rem); }
+  .finder__card {
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    gap: 1.4rem;
+  }
+  .finder__head h2 { margin-bottom: 0.25rem; font-size: var(--text-2xl); }
+  .finder__head p { margin: 0; }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  legend { margin-bottom: 0.6rem; font-size: var(--text-sm); font-weight: 700; color: var(--color-navy-ink); }
+  .finder__options { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .option input { position: absolute; opacity: 0; pointer-events: none; }
+  .option span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.55rem 1rem;
+    border: 1.5px solid var(--color-line);
+    border-radius: var(--radius-pill);
+    color: var(--color-navy-ink);
+    font-size: var(--text-sm);
+    font-weight: 650;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .option span :global(svg) { color: var(--color-turquoise-deep); }
+  .option:hover span { border-color: var(--color-navy); }
+  .option input:checked + span { border-color: var(--color-navy); background: var(--color-navy); color: #fff; }
+  .option input:checked + span :global(svg) { color: var(--color-sun); }
+  .option input:focus-visible + span { outline: 3px solid var(--color-turquoise-deep); outline-offset: 2px; }
+
+  .finder__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 1rem; align-items: end; }
+  .finder__submit { min-height: 48px; }
+  .finder__notice {
+    margin: 0;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    background: var(--color-warning-bg);
+    color: var(--color-navy-ink);
+    font-weight: 600;
+  }
+  @media (max-width: 1000px) {
+    .finder__row { grid-template-columns: 1fr 1fr; }
+    .finder__submit { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .finder__row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  // If statesServed is set in src/data/site.ts, explain when care isn't available in a state.
+  document.querySelectorAll<HTMLFormElement>('[data-care-finder]').forEach((form) => {
+    const served: string[] = JSON.parse(form.dataset.states ?? '[]');
+    const notice = form.querySelector<HTMLElement>('[data-finder-notice]');
+    form.addEventListener('submit', (e) => {
+      const select = form.elements.namedItem('state') as HTMLSelectElement | null;
+      const state = select?.value ?? '';
+      if (served.length && state && !served.includes(state) && notice && select) {
+        e.preventDefault();
+        const name = select.options[select.selectedIndex].text;
+        notice.hidden = false;
+        notice.textContent = `We're not yet able to see patients in ${name}. Request a callback and we'll let you know when that changes, or help you find care nearby.`;
+      }
+    });
+  });
+</script>

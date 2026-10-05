@@ -1,0 +1,156 @@
+---
+/**
+ * "Request a callback" pop-up. Open it from any element with
+ * data-open-callback.
+ */
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+import { states } from '../data/states';
+---
+
+<dialog class="modal" id="callback-modal" aria-labelledby="callback-title" data-callback-modal>
+  <div class="modal__card">
+    <button class="modal__close" type="button" data-close-callback>
+      <Icon name="close" />
+      <span class="visually-hidden">Close</span>
+    </button>
+    <p class="eyebrow">Request a callback</p>
+    <h2 id="callback-title">Tell us a little about what you need</h2>
+    <p class="muted">We'll call or email you to find the right visit and time. Please don't include detailed medical information.</p>
+
+    <form class="modal__form" action={site.formEndpoint} method="post" data-form="callback" data-success="Thank you. We'll be in touch within one business day.">
+      <div class="hp" aria-hidden="true">
+        <label for="cb-company">Company</label>
+        <input id="cb-company" name="company" tabindex="-1" autocomplete="off" />
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="cb-first">First name</label>
+          <input class="input" id="cb-first" name="firstName" autocomplete="given-name" required />
+        </div>
+        <div class="field">
+          <label for="cb-last">Last name</label>
+          <input class="input" id="cb-last" name="lastName" autocomplete="family-name" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="cb-email">Email</label>
+          <input class="input" id="cb-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="cb-phone">Phone</label>
+          <input class="input" id="cb-phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+      </div>
+      <fieldset class="field">
+        <legend>What kind of support are you looking for?</legend>
+        <div class="checks">
+          {
+            ['Psychiatric evaluation', 'Medication management', 'Therapy', 'Facility services'].map((opt, i) => (
+              <label class="check">
+                <input type="checkbox" name="support" value={opt} id={`cb-support-${i}`} />
+                <span>{opt}</span>
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+      <div class="row">
+        <div class="field">
+          <label for="cb-for">Who is the care for?</label>
+          <select class="select" id="cb-for" name="careFor">
+            <option>Myself</option>
+            <option>A loved one</option>
+            <option>A facility resident</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cb-state">State</label>
+          <select class="select" id="cb-state" name="state">
+            <option value="">Select a state</option>
+            {states.map((s) => <option value={s.code}>{s.name}</option>)}
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cb-pay">How will you pay?</label>
+        <select class="select" id="cb-pay" name="payment">
+          <option>Insurance</option>
+          <option>Self-pay</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <label class="check consent">
+        <input type="checkbox" name="consent" value="yes" required id="cb-consent" />
+        <span>
+          I agree to be contacted by phone, text or email about scheduling. See our <a href={site.legal.privacyUrl}>privacy policy</a>.
+        </span>
+      </label>
+      <button class="btn btn--sun btn--lg btn--block" type="submit">Request a callback</button>
+      <p class="form-status" role="status" hidden data-form-status></p>
+    </form>
+  </div>
+</dialog>
+
+<style>
+  .modal {
+    width: min(640px, calc(100% - 2 * var(--gutter)));
+    max-height: calc(100dvh - 2rem);
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: auto;
+  }
+  .modal::backdrop { background: rgba(10, 36, 64, 0.55); }
+  .modal__card { position: relative; padding: clamp(1.5rem, 4vw, 2.5rem); }
+  .modal__card h2 { font-size: var(--text-2xl); padding-right: 2.5rem; }
+  .modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-surface-alt);
+    color: var(--color-navy-ink);
+    cursor: pointer;
+  }
+  .modal__form { display: grid; gap: 1rem; margin-top: 1.25rem; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+  fieldset { border: 0; margin: 0; padding: 0; }
+  .checks { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
+  .check { display: inline-flex; align-items: flex-start; gap: 0.55rem; cursor: pointer; font-size: var(--text-sm); }
+  .checks .check {
+    padding: 0.55rem 0.9rem;
+    border: 1.5px solid var(--color-line);
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+  }
+  .checks .check:has(input:checked) { border-color: var(--color-navy); background: var(--color-sky); }
+  .check input { width: 18px; height: 18px; margin-top: 0.15rem; accent-color: var(--color-navy); flex: none; }
+  .consent { color: var(--color-muted); }
+</style>
+
+<script>
+  import { initForms } from '../scripts/forms';
+
+  const modal = document.querySelector<HTMLDialogElement>('[data-callback-modal]');
+  document.addEventListener('click', (e) => {
+    const target = e.target instanceof Element ? e.target : null;
+    if (target?.closest('[data-open-callback]')) {
+      e.preventDefault();
+      modal?.showModal();
+    }
+    if (target?.closest('[data-close-callback]')) modal?.close();
+  });
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) modal.close();
+  });
+  initForms();
+</script>

@@ -1,0 +1,55 @@
+/*
+ * Design tokens. Change colors, fonts, spacing and corner radius here.
+ * Palette: deep navy for text and structure, sunshine yellow for the main
+ * call to action, turquoise (from the Fawpearl logo) for accents.
+ */
+:root {
+  /* Brand */
+  --color-navy: #14467c;
+  --color-navy-deep: #0c2f57;
+  --color-navy-ink: #0a2440;
+  --color-sun: #ffcd3f;
+  --color-sun-hover: #ffd966;
+  --color-sun-soft: #fff4d1;
+  --color-turquoise: #60cde5;
+  --color-turquoise-deep: #1d8fa8;
+  --color-sky: #eaf8fc;
+  --color-sky-strong: #cdeff7;
+
+  /* Neutrals (slightly blue to sit with the navy) */
+  --color-ink: #13263d;
+  --color-muted: #4b5d72;
+  --color-line: #dbe4ee;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f8fb;
+
+  /* Feedback */
+  --color-success: #1e7a4c;
+  --color-warning-bg: #fff4d1;
+  --color-danger: #b42318;
+
+  /* Type */
+  --font-sans: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.6rem, 1.2rem + 1.4vw, 2.1rem);
+  --text-3xl: clamp(2rem, 1.4rem + 2.2vw, 2.85rem);
+  --text-4xl: clamp(2.4rem, 1.5rem + 3.6vw, 3.9rem);
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section: clamp(3.5rem, 2rem + 6vw, 6.5rem);
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 2px 8px rgba(12, 47, 87, 0.08);
+  --shadow-md: 0 14px 34px -12px rgba(12, 47, 87, 0.22);
+  --shadow-lg: 0 30px 60px -24px rgba(12, 47, 87, 0.35);
+
+  --header-h: 76px;
+}

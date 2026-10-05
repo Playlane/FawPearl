@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { faqs } from '../data/content';
+
+const groups = [...new Set(faqs.map((f) => f.group))];
+---
+
+<BaseLayout title="FAQs" description="Answers to common questions about booking, insurance, visits and facility care at Fawpearl Health Services.">
+  <PageHero
+    title="Frequently asked questions"
+    eyebrow="FAQs"
+    intro="Everything you need to know before your first visit. Still have a question? Call, email or request a callback."
+    crumbs={[{ label: 'FAQs' }]}
+  />
+  <section class="section">
+    <div class="container container--narrow groups">
+      {
+        groups.map((g) => (
+          <div>
+            <h2>{g}</h2>
+            <FaqList items={faqs.filter((f) => f.group === g)} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .groups { display: grid; gap: 3rem; }
+  .groups h2 { font-size: var(--text-2xl); }
+</style>

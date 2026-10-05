@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { conditions, type Condition } from '../../data/conditions';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return conditions.map((condition) => ({ params: { slug: condition.slug }, props: { condition } }));
+}
+
+interface Props {
+  condition: Condition;
+}
+const { condition } = Astro.props;
+const treatments = services.filter((s) => ['psychiatric-evaluation', 'medication-management', 'virtual-psychotherapy'].includes(s.slug));
+const others = conditions.filter((c) => c.slug !== condition.slug);
+---
+
+<BaseLayout title={`${condition.name} treatment`} description={condition.summary}>
+  <PageHero
+    title={`${condition.name} care`}
+    eyebrow="Conditions we treat"
+    intro={condition.summary}
+    crumbs={[{ label: 'Conditions', href: '/conditions' }, { label: condition.name }]}
+  >
+    <div class="btn-row">
+      <a class="btn btn--sun btn--lg" href="/book">Book online now</a>
+      <button class="btn btn--outline btn--lg" type="button" data-open-callback>Request a callback</button>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container two">
+      <div class="card signs">
+        <span class="icon-tile"><Icon name={condition.icon} /></span>
+        <h2>Common signs</h2>
+        <ul class="check-list">
+          {condition.signs.map((s) => <li><Icon name="check" /><span>{s}</span></li>)}
+        </ul>
+        <p class="muted small">Only a qualified provider can make a diagnosis. If these sound familiar, an evaluation is a good next step.</p>
+      </div>
+      <div class="help">
+        <p class="eyebrow">How we help</p>
+        <h2>A plan built around you</h2>
+        <p class="lead">{condition.howWeHelp}</p>
+        <ul class="treatments">
+          {
+            treatments.map((t) => (
+              <li>
+                <a href={`/services/${t.slug}`}>
+                  <span class="icon-tile"><Icon name={t.icon} /></span>
+                  <span>
+                    <strong>{t.name}</strong>
+                    <span>{t.short}</span>
+                  </span>
+                  <Icon name="arrow" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <header class="section-head section-head--left"><h2>Other conditions we treat</h2></header>
+      <ul class="others">
+        {others.map((c) => <li><a class="chip" href={`/conditions/${c.slug}`}><Icon name={c.icon} size={16} />{c.name}</a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .two { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  .signs { padding: clamp(1.5rem, 3vw, 2.25rem); border-radius: var(--radius-lg); background: var(--color-sky); border: 0; }
+  .signs .icon-tile { background: #fff; margin-bottom: 1rem; }
+  .signs h2, .help h2 { font-size: var(--text-2xl); }
+  .small { margin: 1.25rem 0 0; font-size: var(--text-sm); }
+  .help { min-width: 0; }
+  .lead { color: var(--color-muted); font-size: var(--text-lg); }
+  .treatments { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
+  .treatments a { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; padding: 1rem 1.1rem; border: 1px solid var(--color-line); border-radius: var(--radius-md); color: var(--color-ink); text-decoration: none; transition: box-shadow 0.15s ease, border-color 0.15s ease; }
+  .treatments a:hover { border-color: var(--color-navy); box-shadow: var(--shadow-md); }
+  .treatments a > span:nth-child(2) { display: grid; gap: 0.1rem; }
+  .treatments strong { color: var(--color-navy-ink); }
+  .treatments a > span:nth-child(2) > span { color: var(--color-muted); font-size: var(--text-sm); }
+  .others { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .others .chip { padding: 0.6rem 1rem; font-size: var(--text-sm); text-decoration: none; background: #fff; box-shadow: var(--shadow-sm); }
+  .others .chip:hover { background: var(--color-navy); color: #fff; }
+  @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+</style>
