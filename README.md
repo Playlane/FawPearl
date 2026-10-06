@@ -33,7 +33,8 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 | --- | --- |
 | Phone | `+1 (301) 532-5849` and `tel:+13015325849` |
 | Email | `info@fawpearl.org` |
-| "Schedule an appointment" (TherapyPortal) | `https://www.therapyportal.com/p/fawpearl1/` |
+| "Schedule an appointment" (TherapyPortal availability) | `https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityScreen=availability&AvailabilityClinician=1028716&AvailabilityLocation=676233&AvailabilityApptType=2&AvailabilityIsExistingPatient=false` |
+| Patient Portal (existing patients) | `https://www.therapyportal.com/p/fawpearl1/` |
 | "Book online" (Zocdoc) | `https://www.zocdoc.com/doctor/abby-shadare-pmhnp-840303` |
 | Zocdoc link | `https://www.zocdoc.com/about/request/` |
 | Patient portal | `https://www.therapyportal.com/p/fawpearl1/` |
@@ -62,7 +63,7 @@ Use an icon with `<svg class="icon" aria-hidden="true"><use href="#i-phone"></us
 
 ## Scheduling, calendar and EHR (TherapyNotes)
 
-"Book online" opens Zocdoc directly. "Schedule an appointment" opens your TherapyPortal,
+"Book online" opens Zocdoc directly. "Schedule an appointment" opens your TherapyPortal availability calendar (new patient, video),
 which is part of TherapyNotes, the EHR you already use. Both open in a new tab.
 
 1. **Let new patients request a time:** in TherapyNotes go to *Settings → Client Portal*
