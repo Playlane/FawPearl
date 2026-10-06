@@ -74,15 +74,17 @@ TherapyNotes, the EHR you already use.
 
 ## Insurance logos
 
-The "Insurance we accept" section is near the top of `index.html`. Save each logo in
-`assets/images/insurance/` and add one line inside `<ul class="insurance-logos">`:
+The "Insurance we accept" carousel is near the top of `index.html`. To add a plan,
+save its logo in `assets/images/insurance/` and copy one `<li>` line inside
+`<ul class="carousel-track">`:
 
 ```html
 <li><img src="assets/images/insurance/aetna.png" alt="Aetna" loading="lazy"></li>
 ```
 
-Use only logo files the insurer has given you permission to use. While the list is
-empty, the page shows a "we'll check your coverage" note instead.
+It shows 4 logos at a time on computers, 2 on tablets and 1 on phones, and slides on
+its own when there are more. Change `CAROUSEL_SPEED` in `assets/js/main.js` to make it
+faster or slower (0 turns automatic sliding off).
 
 ## Virtual assistant
 

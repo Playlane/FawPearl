@@ -34,9 +34,9 @@ const TOPICS = [
   },
   {
     label: 'Do you take my insurance?',
-    keywords: ['insurance', 'insured', 'coverage', 'aetna', 'cigna', 'blue', 'medicare', 'medicaid', 'united', 'tricare', 'copay'],
+    keywords: ['insurance', 'insured', 'coverage', 'aetna', 'cigna', 'blue', 'horizon', 'carefirst', 'bcbs', 'medicare', 'medicaid', 'united', 'tricare', 'copay'],
     answer:
-      'We\'re happy to check your coverage before your first visit. Call <a href="tel:+13015325849">+1 (301) 532-5849</a> or email <a href="mailto:info@fawpearl.org">info@fawpearl.org</a> with your plan details. <a href="fees.html">See fees &amp; insurance →</a>',
+      'We accept Horizon Blue Cross Blue Shield, Cigna, CareFirst and Blue Cross Blue Shield of Massachusetts. For other plans, we\'re happy to check your coverage before your first visit. Call <a href="tel:+13015325849">+1 (301) 532-5849</a> or email <a href="mailto:info@fawpearl.org">info@fawpearl.org</a> with your plan details. <a href="fees.html">See fees &amp; insurance →</a>',
   },
   {
     label: 'Prices',

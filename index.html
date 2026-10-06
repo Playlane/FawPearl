@@ -126,19 +126,26 @@
     </section>
 
     <!-- ===== How it works ===== -->
-    <!-- Insurance logos.
-         To add a plan: save its logo in assets/images/insurance/ and add one line inside <ul class="insurance-logos">:
-         <li><img src="assets/images/insurance/plan-name.png" alt="Plan name" loading="lazy"></li>
-         Or, without a logo:  <li><span>Plan name</span></li>
-         When the list has at least one plan, the "we'll check" note below still shows as a helpful extra. -->
+    <!-- Insurance logo carousel.
+         To add a plan: save its logo in assets/images/insurance/ and copy one <li> line below.
+         The carousel slides on its own once there are more logos than fit on the screen. -->
     <section class="section insurance" aria-labelledby="insurance-title">
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">Insurance</p>
           <h2 id="insurance-title">Insurance we accept</h2>
         </header>
-        <ul class="insurance-logos"></ul>
-        <p class="insurance-note reveal">Not sure if your plan is covered? <a href="tel:+13015325849">Call +1 (301) 532-5849</a> and we'll check for you before your first visit. Self-pay is also available. <a class="text-link" href="fees.html">Fees &amp; insurance <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></p>
+        <div class="logo-carousel" data-carousel>
+          <button class="carousel-btn carousel-prev" type="button" aria-label="Previous insurers"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+          <ul class="carousel-track" aria-label="Insurance plans we accept">
+            <li><img src="assets/images/insurance/horizon-bcbs.png" alt="Horizon Blue Cross Blue Shield" width="393" height="106" loading="lazy"></li>
+            <li><img src="assets/images/insurance/cigna.png" alt="Cigna" width="398" height="124" loading="lazy"></li>
+            <li><img src="assets/images/insurance/carefirst.png" alt="CareFirst" width="397" height="97" loading="lazy"></li>
+            <li><img src="assets/images/insurance/bcbs-massachusetts.png" alt="Blue Cross Blue Shield of Massachusetts" width="403" height="108" loading="lazy"></li>
+          </ul>
+          <button class="carousel-btn carousel-next" type="button" aria-label="Next insurers"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+        </div>
+        <p class="insurance-note reveal">Don't see your plan? <a href="tel:+13015325849">Call +1 (301) 532-5849</a> and we'll check your coverage before your first visit. Self-pay is also available. <a class="text-link" href="fees.html">Fees &amp; insurance <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></p>
       </div>
     </section>
 

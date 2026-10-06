@@ -382,15 +382,22 @@ p { margin: 0 0 1em; }
 	.hero-photo { transform: none; }
 }
 
-/* ---------- Insurance logos (homepage) ---------- */
+/* ---------- Insurance logo carousel (homepage) ---------- */
 .insurance { background: var(--surface); }
-.insurance-logos { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; max-width: 1000px; }
-.insurance-logos:empty { display: none; }
-.insurance-logos li { display: grid; place-items: center; min-height: 92px; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
-.insurance-logos img { max-height: 48px; max-width: 100%; width: auto; object-fit: contain; }
-.insurance-logos span { font-weight: 600; color: var(--deep); text-align: center; }
+.insurance .section-head { margin-bottom: 2rem; }
+.logo-carousel { display: flex; align-items: center; gap: .75rem; max-width: 1100px; margin: 0 auto; }
+.carousel-track { flex: 1; list-style: none; margin: 0; padding: .5rem .25rem; display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track li { flex: 0 0 calc((100% - 3rem) / 4); scroll-snap-align: start; display: grid; place-items: center; min-height: 110px; padding: 1.1rem 1.4rem; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
+.carousel-track img { width: auto; max-width: 100%; max-height: 56px; object-fit: contain; }
+.carousel-btn { flex: none; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--teal); cursor: pointer; transition: background .2s, color .2s; }
+.carousel-btn:hover { background: var(--deep); color: #fff; border-color: var(--deep); }
+.carousel-btn .icon { width: 20px; height: 20px; }
+.carousel-prev .icon { transform: scaleX(-1); }
+.logo-carousel.is-static .carousel-btn { visibility: hidden; }
+@media (max-width: 900px) { .carousel-track li { flex-basis: calc((100% - 1rem) / 2); } }
+@media (max-width: 520px) { .logo-carousel { gap: .4rem; } .carousel-btn { width: 40px; height: 40px; } .carousel-track li { flex-basis: 100%; min-height: 96px; } }
 .insurance-note { max-width: 680px; margin: 1.75rem auto 0; text-align: center; color: var(--muted); }
-.insurance-logos:empty + .insurance-note { margin-top: 0; padding: 1.5rem 1.75rem; background: var(--mist); border-radius: 18px; color: var(--ink); }
 .insurance-note .text-link { display: inline-flex; margin-left: .25rem; }
 
 /* ---------- Virtual assistant ---------- */

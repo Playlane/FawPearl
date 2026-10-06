@@ -164,3 +164,39 @@ if (contactForm) {
     }
   });
 }
+
+/* ---------- Insurance logo carousel ---------- */
+// Arrows move one logo at a time and wrap around; it also slides by itself
+// every few seconds, pausing while someone hovers or uses the arrows.
+const CAROUSEL_SPEED = 3000; // milliseconds between automatic slides (0 = off)
+
+document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+  const track = carousel.querySelector('.carousel-track');
+  const step = () => {
+    const item = track.querySelector('li');
+    return item ? item.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 16) : track.clientWidth;
+  };
+  const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  const move = (dir) => {
+    if (dir > 0 && atEnd()) track.scrollTo({ left: 0 });
+    else if (dir < 0 && track.scrollLeft <= 4) track.scrollTo({ left: track.scrollWidth });
+    else track.scrollBy({ left: dir * step() });
+  };
+  const update = () => carousel.classList.toggle('is-static', track.scrollWidth <= track.clientWidth + 4);
+
+  carousel.querySelector('.carousel-prev').addEventListener('click', () => move(-1));
+  carousel.querySelector('.carousel-next').addEventListener('click', () => move(1));
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+
+  let paused = false;
+  ['mouseenter', 'focusin', 'touchstart'].forEach((e) => carousel.addEventListener(e, () => { paused = true; }, { passive: true }));
+  ['mouseleave', 'focusout'].forEach((e) => carousel.addEventListener(e, () => { paused = false; }));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (CAROUSEL_SPEED && !reduceMotion) {
+    setInterval(() => {
+      if (!paused && !document.hidden && !carousel.classList.contains('is-static')) move(1);
+    }, CAROUSEL_SPEED);
+  }
+});
