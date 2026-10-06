@@ -30,13 +30,13 @@ const TOPICS = [
     label: 'Book an appointment',
     keywords: ['book', 'appointment', 'schedule', 'visit', 'new patient', 'start', 'sign up'],
     answer:
-      'You can book online in a few minutes. New patients start with an <strong>Initial Psychiatric Evaluation</strong>. <a href="book.html">Go to Book online →</a>',
+      'Two easy ways to book: <a href="https://www.zocdoc.com/doctor/abby-shadare-pmhnp-840303" target="_blank" rel="noopener">Book online with Zocdoc →</a> or <a href="https://www.therapyportal.com/p/fawpearl1/" target="_blank" rel="noopener">Schedule an appointment in our patient portal →</a> New patients start with an <strong>Initial Psychiatric Evaluation</strong>.',
   },
   {
     label: 'Do you take my insurance?',
-    keywords: ['insurance', 'insured', 'coverage', 'aetna', 'cigna', 'blue', 'horizon', 'carefirst', 'bcbs', 'medicare', 'medicaid', 'united', 'tricare', 'copay'],
+    keywords: ['insurance', 'insured', 'coverage', 'aetna', 'cigna', 'blue', 'horizon', 'carefirst', 'bcbs', 'oscar', 'anthem', 'oxford', 'quest', 'medicare', 'medicaid', 'united', 'tricare', 'copay'],
     answer:
-      'We accept Horizon Blue Cross Blue Shield, Cigna, CareFirst and Blue Cross Blue Shield of Massachusetts. For other plans, we\'re happy to check your coverage before your first visit. Call <a href="tel:+13015325849">+1 (301) 532-5849</a> or email <a href="mailto:info@fawpearl.org">info@fawpearl.org</a> with your plan details. <a href="fees.html">See fees &amp; insurance →</a>',
+      'We accept Oscar, Horizon BCBS, Cigna, CareFirst, Blue Cross Blue Shield of Massachusetts, Anthem BCBS, UnitedHealthcare, Oxford and Quest Behavioral Health. For other plans, we\'re happy to check your coverage before your first visit. Call <a href="tel:+13015325849">+1 (301) 532-5849</a> or email <a href="mailto:info@fawpearl.org">info@fawpearl.org</a> with your plan details. <a href="fees.html">See fees &amp; insurance →</a>',
   },
   {
     label: 'Prices',

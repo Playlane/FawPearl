@@ -9,7 +9,6 @@ step: what you see in this folder is exactly what goes online.
 index.html        Home
 about.html        About
 services.html     Services (including care facilities)
-book.html         Book online
 fees.html         Fees & Insurance
 faqs.html         FAQs
 contact.html      Contact (with message form)
@@ -35,6 +34,7 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 | Phone | `+1 (301) 532-5849` and `tel:+13015325849` |
 | Email | `info@fawpearl.org` |
 | "Schedule an appointment" (TherapyPortal) | `https://www.therapyportal.com/p/fawpearl1/` |
+| "Book online" (Zocdoc) | `https://www.zocdoc.com/doctor/abby-shadare-pmhnp-840303` |
 | Zocdoc link | `https://www.zocdoc.com/about/request/` |
 | Patient portal | `https://www.therapyportal.com/p/fawpearl1/` |
 | Privacy policy | `https://fawpearl.org/privacy-policy/` |
@@ -43,8 +43,8 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 (used for "Open today" in the top bar), and the hours table in `contact.html`.
 
 **Colours and fonts** – change the values in `:root` at the top of
-`assets/css/style.css`. For example `--deep` is the dark logo blue and `--accent`
-the orange button colour.
+`assets/css/style.css`. For example `--deep` is the dark navy and `--accent`
+the Cigna-blue button colour.
 
 **Photos** – replace a file in `assets/images/` with one of the same name.
 Add Abimbola's headshot as `assets/images/provider.jpg` and change
@@ -62,8 +62,8 @@ Use an icon with `<svg class="icon" aria-hidden="true"><use href="#i-phone"></us
 
 ## Scheduling, calendar and EHR (TherapyNotes)
 
-"Schedule an appointment" sends new patients to your TherapyPortal, which is part of
-TherapyNotes, the EHR you already use.
+"Book online" opens Zocdoc directly. "Schedule an appointment" opens your TherapyPortal,
+which is part of TherapyNotes, the EHR you already use. Both open in a new tab.
 
 1. **Let new patients request a time:** in TherapyNotes go to *Settings → Client Portal*
    and turn on new patient appointment requests. Requests appear in TherapyNotes for you
@@ -128,7 +128,7 @@ needed; leave the build command empty.
 
 ## Before going live
 
-- [ ] Replace the Zocdoc sign-up link with Fawpearl's own Zocdoc profile link
+- [ ] When Fawpearl has its own Zocdoc listing, find-and-replace the Zocdoc link above in every page
 - [ ] Turn on New Patient Requests and Calendar Sync in TherapyNotes (see below)
 - [ ] Add your insurance logos (see below)
 - [ ] Add Abimbola's headshot
