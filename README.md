@@ -34,7 +34,7 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 | Email | `info@fawpearl.org` |
 | "Schedule an appointment" (TherapyPortal availability) | `https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityScreen=availability&AvailabilityClinician=1028716&AvailabilityLocation=676233&AvailabilityApptType=2&AvailabilityIsExistingPatient=false` |
 | Patient Portal (existing patients) | `https://www.therapyportal.com/p/fawpearl1/` |
-| "Book online" (Zocdoc) | `https://www.zocdoc.com/doctor/abby-shadare-pmhnp-840303` |
+| "Book online" (same TherapyPortal calendar until Fawpearl has its own Zocdoc listing) | see "Schedule an appointment" |
 | Zocdoc link | `https://www.zocdoc.com/about/request/` |
 | Patient portal | `https://www.therapyportal.com/p/fawpearl1/` |
 | Privacy policy | `https://fawpearl.org/privacy-policy/` |
@@ -61,7 +61,7 @@ Use an icon with `<svg class="icon" aria-hidden="true"><use href="#i-phone"></us
 
 ## Scheduling, calendar and EHR (TherapyNotes)
 
-"Book online" opens Zocdoc directly. "Schedule an appointment" opens your TherapyPortal availability calendar (new patient, video),
+"Book online" and "Schedule an appointment" both open your TherapyPortal availability calendar (new patient, video),
 which is part of TherapyNotes, the EHR you already use. Both open in a new tab.
 
 1. **Let new patients request a time:** in TherapyNotes go to *Settings → Client Portal*
@@ -127,7 +127,7 @@ needed; leave the build command empty.
 
 ## Before going live
 
-- [ ] When Fawpearl has its own Zocdoc listing, find-and-replace the Zocdoc link above in every page
+- [ ] When Fawpearl has its own Zocdoc listing, point the "Book online" links (header, hero, mobile bar, pages) to it
 - [ ] Turn on New Patient Requests and Calendar Sync in TherapyNotes (see below)
 - [ ] Add your insurance logos (see below)
 - [ ] Add Abimbola's headshot
