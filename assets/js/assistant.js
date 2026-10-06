@@ -30,7 +30,7 @@ const TOPICS = [
     label: 'Book an appointment',
     keywords: ['book', 'appointment', 'schedule', 'visit', 'new patient', 'start', 'sign up'],
     answer:
-      'You can pick a date and time in our online calendar: <a href="https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityScreen=availability&amp;AvailabilityClinician=1028716&amp;AvailabilityLocation=676233&amp;AvailabilityApptType=2&amp;AvailabilityIsExistingPatient=false" target="_blank" rel="noopener">Book online →</a> New patients start with an <strong>Initial Psychiatric Evaluation</strong>.',
+      'Two easy ways to book: <a href="https://www.zocdoc.com/practice/fawpearl-health-services-188732" target="_blank" rel="noopener">Book online with Zocdoc →</a> or <a href="https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityScreen=availability&amp;AvailabilityClinician=1028716&amp;AvailabilityLocation=676233&amp;AvailabilityApptType=2&amp;AvailabilityIsExistingPatient=false" target="_blank" rel="noopener">Schedule an appointment in our patient portal →</a> New patients start with an <strong>Initial Psychiatric Evaluation</strong>.',
   },
   {
     label: 'Do you take my insurance?',
