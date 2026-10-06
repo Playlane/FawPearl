@@ -1,108 +1,104 @@
 # Fawpearl Health Services website
 
-The website for [Fawpearl Health Services](https://fawpearl.org): virtual psychiatric care, online booking, care for residential and long-term care facilities, and patient referrals.
+A simple website made of plain HTML, CSS and JavaScript. There is no build
+step: what you see in this folder is exactly what goes online.
 
-Built with [Astro](https://astro.build). Pages are plain HTML at the end, so the site is fast, secure and cheap to host.
+## Files
 
-## Quick start
+```
+index.html        Home
+about.html        About
+services.html     Services (including care facilities)
+book.html         Book online
+fees.html         Fees & Insurance
+faqs.html         FAQs
+contact.html      Contact (with message form)
+404.html          "Page not found"
 
-```bash
-npm install
-npm run dev      # local preview at http://localhost:4321
-npm run build    # production build in dist/
+assets/css/style.css    All styling
+assets/js/main.js       Menu, opening hours, contact form, small effects
+assets/images/          Logo, photos, favicon
+assets/video/           Homepage video (hero.mp4 and hero.webm)
 ```
 
-Requires Node.js 22.12 or newer.
+## Making changes
 
-## Where to change things
+**Text** – open the page's `.html` file and edit the words between the tags.
+Each section starts with a comment such as `<!-- ===== How it works ===== -->`
+so it is easy to find.
 
-Most edits are in **`src/data/`**. Change a value there and every page that uses it updates.
+**Phone number, email or booking links** – these appear on several pages. Use
+your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 
-| What | File |
+| What | Search for |
 | --- | --- |
-| Phone, email, hours, time zone | `src/data/site.ts` |
-| Booking links (Tebra, Zocdoc, patient portal) | `src/data/site.ts` → `booking` |
-| Insurance plans accepted | `src/data/site.ts` → `insurance.plans` |
-| States where you can see patients | `src/data/site.ts` → `statesServed` |
-| Provider name, bio, photo | `src/data/site.ts` → `provider` |
-| Services, prices, visit descriptions | `src/data/services.ts` |
-| Conditions (each gets its own page) | `src/data/conditions.ts` |
-| Care settings, benefits, steps, values, FAQs | `src/data/content.ts` |
-| Main menu, top links, footer links | `src/data/navigation.ts` |
-| Colors, fonts, spacing, corner radius | `src/styles/tokens.css` |
-| Blog posts | add a Markdown file to `src/content/blog/` |
-| Photos | replace files in `public/images/` (keep the names) |
-| Logo | `src/components/Logo.astro` (set `logoSrc` to your logo file) |
+| Phone | `+1 (301) 532-5849` and `tel:+13015325849` |
+| Email | `info@fawpearl.org` |
+| Tebra booking link | `https://www.tebra.com/care/join/` |
+| Zocdoc link | `https://www.zocdoc.com/about/request/` |
+| Patient portal | `https://www.therapyportal.com/p/fawpearl1/` |
+| Privacy policy | `https://fawpearl.org/privacy-policy/` |
 
-### Adding a service
-Add an entry to the `services` list in `src/data/services.ts`. It automatically gets a page at `/services/<slug>`, a row in the pricing table, a card on the homepage and a place in the menu.
+**Opening hours** – edit the `HOURS` list at the top of `assets/js/main.js`
+(used for "Open today" in the top bar), and the hours table in `contact.html`.
 
-### Adding a blog post
-Create `src/content/blog/my-post.md`:
+**Colours and fonts** – change the values in `:root` at the top of
+`assets/css/style.css`. For example `--deep` is the dark teal and `--accent`
+the orange button colour.
 
-```md
----
-title: My post title
-description: One sentence shown on cards and in search results.
-date: 2026-10-05
-category: Wellness
----
+**Photos** – replace a file in `assets/images/` with one of the same name.
+Add Abimbola's headshot as `assets/images/provider.jpg` and change
+`provider-placeholder.svg` to `provider.jpg` in `index.html` and `about.html`.
 
-Write the post here in Markdown.
-```
+**Homepage video** – replace `assets/video/hero.mp4` (and `hero.webm`, or
+delete that line in `index.html`). Keep videos short, silent and under about
+2 MB. `assets/images/hero-poster.jpg` is shown while the video loads.
 
-## Project structure
+**Menu** – the menu is near the top of every page, inside
+`<nav id="site-nav">`. If you add or rename a page, update it on each page.
 
-```
-api/contact.js            Form handler (Vercel serverless function)
-public/                   Images, favicon, robots.txt
-src/
-  components/             Reusable sections (Header, CareFinder, ProviderCard, ...)
-  content/blog/           Blog posts in Markdown
-  data/                   All editable content and settings
-  layouts/BaseLayout.astro  Page shell: head tags, header, footer, callback pop-up
-  pages/                  One file per page; [slug].astro files generate many pages
-  scripts/                Small browser scripts (menu, forms, opening hours)
-  styles/                 Design tokens and base styles
-```
+**Icons** – each page starts with a small icon library (`<symbol id="i-...">`).
+Use an icon with `<svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>`.
 
-## Pages
+## Contact form
 
-`/` home · `/book` booking · `/services` and `/services/<service>` · `/conditions` and `/conditions/<condition>` · `/facilities` care settings · `/refer` refer a patient · `/insurance` insurance & pricing · `/provider` · `/about` · `/faqs` · `/contact` · `/blog`
+The form on `contact.html` sends messages through [Formspree](https://formspree.io)
+(free plan available):
 
-Old WordPress addresses (`/prices`, `/book-online`, `/schedule-appointment`, `/meet-the-team`, `/insurance-and-fees`, `/fees-insurance`) redirect to their new pages. Add more in `astro.config.mjs`.
+1. Create a Formspree account and a new form, with your email as the recipient.
+2. Copy the form ID (it looks like `xyzabcd`).
+3. In `contact.html`, replace `YOUR-FORM-ID` in
+   `action="https://formspree.io/f/YOUR-FORM-ID"` with your ID.
 
-## Deploying on Vercel
+Until then the form asks visitors to call or email instead. Patients may type
+health details into the form, so check that your form service and email meet
+your HIPAA obligations (Formspree offers a HIPAA plan), or remove the form and
+keep phone and email only.
 
-1. In Vercel, choose **Add New → Project** and import this GitHub repository. Vercel detects Astro automatically.
-2. Under **Settings → Environment Variables**, add the values from `.env.example` so the forms can send email (see below).
-3. Under **Settings → Domains**, add `fawpearl.org` and follow the DNS steps shown (at Namecheap: **Domain List → Manage → Advanced DNS**).
+## Putting it online
 
-Every push to `main` then redeploys the site automatically. The GitHub Actions workflow in `.github/workflows/ci.yml` also builds each change so mistakes are caught early.
+**GitHub Pages (free)**
 
-## Forms
+1. Upload these files to the repository (keep `index.html` at the top level).
+2. In the repository, go to **Settings → Pages**.
+3. Under *Build and deployment*, choose **Deploy from a branch**, branch
+   **main**, folder **/ (root)**, then **Save**.
+4. After a minute the site is live at `https://<account>.github.io/<repository>/`.
+5. To use fawpearl.org, enter it under **Custom domain** on the same page and
+   follow GitHub's DNS instructions (at Namecheap: *Domain List → Manage →
+   Advanced DNS*).
 
-The callback pop-up, the referral form and the contact form post to `api/contact.js`, which emails each submission through [Resend](https://resend.com). Set these environment variables in Vercel:
+**Vercel or Netlify** – import the GitHub repository. No build settings are
+needed; leave the build command empty.
 
-- `RESEND_API_KEY`: your Resend API key
-- `CONTACT_TO`: where messages go (defaults to info@fawpearl.org)
-- `CONTACT_FROM`: a sender on a domain verified in Resend, e.g. `Fawpearl Website <website@fawpearl.org>`
-
-Until these are set, the forms ask visitors to call or email instead.
-
-**Privacy:** people may type health details into forms even though the forms ask them not to. Before going live, confirm your email setup meets your HIPAA obligations, or switch to a HIPAA-ready form service by changing `formEndpoint` in `src/data/site.ts`.
+**Your existing hosting (cPanel)** – upload the files into `public_html`.
 
 ## Before going live
 
-- [ ] Replace the Tebra and Zocdoc sign-up links in `src/data/site.ts` with Fawpearl's own booking links
-- [ ] Add the states where Fawpearl is licensed to `statesServed`
-- [ ] Add insurance plans you accept, or leave empty to show the "we'll check your coverage" message
-- [ ] Confirm the conditions list in `src/data/conditions.ts` matches what you treat
-- [ ] Add a real headshot at `public/images/` and update `provider.photo`
-- [ ] Add the Fawpearl logo (see `src/components/Logo.astro`)
-- [ ] Set up the form environment variables
-- [ ] Make sure `legal.privacyUrl` points to your privacy policy
+- [ ] Replace the Tebra and Zocdoc sign-up links with Fawpearl's own booking links
+- [ ] Add Abimbola's headshot
+- [ ] Set up the contact form (see above)
+- [ ] Make sure the privacy policy link points to your policy
+- [ ] List the insurance plans you accept in `fees.html` (see the comment there)
 
-## Photo credits
-
-The sample photos in `public/images/` are free images from Pixabay (via github.com/yavuzceliker/sample-images), used under the Pixabay Content License. Replace them with your own whenever you like.
+Sample photo: Pixabay licence. Video: supplied by Fawpearl.
