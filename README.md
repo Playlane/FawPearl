@@ -34,7 +34,7 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 | --- | --- |
 | Phone | `+1 (301) 532-5849` and `tel:+13015325849` |
 | Email | `info@fawpearl.org` |
-| Tebra booking link | `https://www.tebra.com/care/join/` |
+| "Schedule an appointment" (TherapyPortal) | `https://www.therapyportal.com/p/fawpearl1/` |
 | Zocdoc link | `https://www.zocdoc.com/about/request/` |
 | Patient portal | `https://www.therapyportal.com/p/fawpearl1/` |
 | Privacy policy | `https://fawpearl.org/privacy-policy/` |
@@ -43,7 +43,7 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 (used for "Open today" in the top bar), and the hours table in `contact.html`.
 
 **Colours and fonts** – change the values in `:root` at the top of
-`assets/css/style.css`. For example `--deep` is the dark teal and `--accent`
+`assets/css/style.css`. For example `--deep` is the dark logo blue and `--accent`
 the orange button colour.
 
 **Photos** – replace a file in `assets/images/` with one of the same name.
@@ -59,6 +59,37 @@ delete that line in `index.html`). Keep videos short, silent and under about
 
 **Icons** – each page starts with a small icon library (`<symbol id="i-...">`).
 Use an icon with `<svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>`.
+
+## Scheduling, calendar and EHR (TherapyNotes)
+
+"Schedule an appointment" sends new patients to your TherapyPortal, which is part of
+TherapyNotes, the EHR you already use.
+
+1. **Let new patients request a time:** in TherapyNotes go to *Settings → Client Portal*
+   and turn on new patient appointment requests. Requests appear in TherapyNotes for you
+   to accept; nothing is booked until you do.
+2. **Sync to your calendar:** in TherapyNotes open *Settings → Calendar Sync* and connect
+   Google, Outlook or Apple Calendar. Appointments show in your calendar (client initials
+   only). The sync is one-way: TherapyNotes → your calendar.
+
+## Insurance logos
+
+The "Insurance we accept" section is near the top of `index.html`. Save each logo in
+`assets/images/insurance/` and add one line inside `<ul class="insurance-logos">`:
+
+```html
+<li><img src="assets/images/insurance/aetna.png" alt="Aetna" loading="lazy"></li>
+```
+
+Use only logo files the insurer has given you permission to use. While the list is
+empty, the page shows a "we'll check your coverage" note instead.
+
+## Virtual assistant
+
+The "Need help?" bubble on every page is `assets/js/assistant.js`. Edit the `TOPICS`
+list at the top to change the buttons and answers. It uses ready-made answers only:
+no AI, nothing typed is stored or sent anywhere, and crisis words (e.g. "suicide")
+always show 988 and 911.
 
 ## Contact form
 
@@ -95,7 +126,9 @@ needed; leave the build command empty.
 
 ## Before going live
 
-- [ ] Replace the Tebra and Zocdoc sign-up links with Fawpearl's own booking links
+- [ ] Replace the Zocdoc sign-up link with Fawpearl's own Zocdoc profile link
+- [ ] Turn on New Patient Requests and Calendar Sync in TherapyNotes (see below)
+- [ ] Add your insurance logos (see below)
 - [ ] Add Abimbola's headshot
 - [ ] Set up the contact form (see above)
 - [ ] Make sure the privacy policy link points to your policy
