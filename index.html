@@ -96,11 +96,11 @@
 
         <div class="hero-visual">
           <div class="hero-photo">
-            <!-- To change the video, replace the files in assets/video (keep the names). -->
-            <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/hero-poster.jpg" aria-hidden="true">
-              <source src="assets/video/hero.webm" type="video/webm">
-              <source src="assets/video/hero.mp4" type="video/mp4">
-            </video>
+            <!-- To change the photo, replace assets/images/hero.webp and hero.jpg (keep the names). -->
+            <picture>
+              <source srcset="assets/images/hero.webp" type="image/webp">
+              <img class="hero-img" src="assets/images/hero.jpg" alt="Clinician taking notes during a virtual visit" width="1600" height="1067" fetchpriority="high">
+            </picture>
           </div>
           <a class="float-card" href="https://www.zocdoc.com/doctor/abby-shadare-pmhnp-840303" target="_blank" rel="noopener">
             <span class="float-label">Your first visit</span>

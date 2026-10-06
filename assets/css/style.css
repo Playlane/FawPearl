@@ -129,8 +129,8 @@ p { margin: 0 0 1em; }
 .hero-visual { position: relative; min-width: 0; }
 .hero-photo { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 4.4; box-shadow: var(--shadow); transform: rotate(1.5deg); }
 .hero-photo img, .hero-photo video { display: block; width: 100%; height: 100%; object-fit: cover; }
-.hero-video { object-position: 45% center; background: var(--deep-2); }
-.hero-video { object-position: 38% center; background: var(--deep-2); }
+.hero-photo picture { display: contents; }
+.hero-img { object-position: 55% center; background: var(--deep-2); }
 .float-card { position: absolute; left: -2.2rem; bottom: -1.8rem; width: min(300px, 80%); display: grid; gap: .25rem; background: var(--surface); color: var(--ink); border-radius: var(--r-md); padding: 1.15rem 1.25rem 1.2rem; text-decoration: none; box-shadow: var(--shadow); transition: transform .2s ease; }
 .float-card:hover { transform: translateY(-3px); }
 .float-label { font-size: .74rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }

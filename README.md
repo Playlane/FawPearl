@@ -17,7 +17,6 @@ contact.html      Contact (with message form)
 assets/css/style.css    All styling
 assets/js/main.js       Menu, opening hours, contact form, small effects
 assets/images/          Logo, photos, favicon
-assets/video/           Homepage video (hero.mp4 and hero.webm)
 ```
 
 ## Making changes
@@ -51,9 +50,8 @@ the Cigna-blue button colour.
 Add Abimbola's headshot as `assets/images/provider.jpg` and change
 `provider-placeholder.svg` to `provider.jpg` in `index.html` and `about.html`.
 
-**Homepage video** – replace `assets/video/hero.mp4` (and `hero.webm`, or
-delete that line in `index.html`). Keep videos short, silent and under about
-2 MB. `assets/images/hero-poster.jpg` is shown while the video loads.
+**Homepage photo** – replace `assets/images/hero.jpg` and `assets/images/hero.webp`
+(keep the names). Landscape photos about 1600 px wide work best.
 
 **Menu** – the menu is near the top of every page, inside
 `<nav id="site-nav">`. If you add or rename a page, update it on each page.

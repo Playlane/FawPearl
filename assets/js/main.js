@@ -102,15 +102,6 @@ if (!('IntersectionObserver' in window) || reduceMotion) {
   setTimeout(() => revealItems.forEach((item) => item.classList.add('is-in')), 2500);
 }
 
-/* ---------- Hero video: keep it still for people who prefer less motion ---------- */
-
-const heroVideo = document.querySelector('.hero-video');
-
-if (heroVideo && reduceMotion) {
-  heroVideo.removeAttribute('autoplay');
-  heroVideo.pause();
-}
-
 /* ---------- Booking page: show the chosen visit in step 2 ---------- */
 
 const chosenVisit = document.querySelector('.chosen-visit');
