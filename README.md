@@ -55,8 +55,14 @@ Add Abimbola's headshot as `assets/images/provider.jpg` and change
 with the name written beside it as text. To change the wording, edit the `brand-name`
 line in each page; to change its size, edit `.brand-name` in `assets/css/style.css`.
 
-**Specialties** – the "Our specialties" tiles are in `index.html`. Copy or delete one
-`<li class="spec-tile">` line to add or remove a condition.
+**Specialties** – the "Our specialties" tiles are in `index.html` and each opens its own
+page in the `specialties/` folder (for example `specialties/anxiety.html`). Edit the words
+directly in those pages. To add a specialty, copy one of the pages, change its words, and add
+a tile line in `index.html` plus a link in the Specialties menu of every page's header.
+
+**Header** – the menu (Specialties, Services, For Clients, About, Contact) and the
+"Book online" and "Sign in" buttons are at the top of every page, including the pages in
+`specialties/`. If you change a menu item, change it on every page.
 
 **Homepage photo** – replace `assets/images/hero.jpg` and `assets/images/hero.webp`
 (keep the names). Landscape photos about 1600 px wide work best.

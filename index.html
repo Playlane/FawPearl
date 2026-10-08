@@ -35,20 +35,12 @@
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 012 2v12a2 2 0 01-2 2h-4"/><path d="M4 12h11M11 8l4 4-4 4"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
   </svg>
 
   <a class="skip-link" href="#content">Skip to content</a>
-
-  <!-- ===== Top bar ===== -->
-  <div class="utility">
-    <div class="wrap utility-inner">
-      <a class="utility-item" href="tel:+13015325849"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span>+1 (301) 532-5849</span></a>
-      <span class="utility-item"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span data-hours-today>Mon–Fri 8 am – 9 pm · Sat 10 am – 5 pm</span></span>
-      <span class="utility-item hide-sm"><svg class="icon" aria-hidden="true"><use href="#i-video"></use></svg><span>Virtual care by secure video</span></span>
-      <a class="utility-item utility-portal" href="https://www.therapyportal.com/p/fawpearl1/"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg><span>Patient Portal</span></a>
-    </div>
-  </div>
 
   <!-- ===== Header ===== -->
   <header class="site-header">
@@ -60,17 +52,37 @@
 
       <nav id="site-nav" class="site-nav" aria-label="Main">
         <ul>
-          <li><a href="index.html" class="is-current" aria-current="page">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li class="has-sub">
+            <a href="index.html#specialties">Specialties <svg class="icon" aria-hidden="true"><use href="#i-chevron"></use></svg></a>
+            <ul class="sub-menu">
+              <li><a href="specialties/adhd.html">ADHD</a></li>
+              <li><a href="specialties/anxiety.html">Anxiety</a></li>
+              <li><a href="specialties/bipolar-disorder.html">Bipolar disorder</a></li>
+              <li><a href="specialties/depression.html">Depression</a></li>
+              <li><a href="specialties/insomnia.html">Insomnia</a></li>
+              <li><a href="specialties/life-transitions.html">Life transitions</a></li>
+              <li><a href="specialties/ocd.html">OCD</a></li>
+              <li><a href="specialties/trauma.html">Trauma & PTSD</a></li>
+            </ul>
+          </li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="fees.html">Fees &amp; Insurance</a></li>
-          <li><a href="faqs.html">FAQs</a></li>
+          <li class="has-sub">
+            <a href="fees.html">For Clients <svg class="icon" aria-hidden="true"><use href="#i-chevron"></use></svg></a>
+            <ul class="sub-menu">
+              <li><a href="fees.html">Fees &amp; Insurance</a></li>
+              <li><a href="faqs.html">FAQs</a></li>
+              <li><a href="https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityScreen=availability&amp;AvailabilityClinician=1028716&amp;AvailabilityLocation=676233&amp;AvailabilityApptType=2&amp;AvailabilityIsExistingPatient=false" target="_blank" rel="noopener">Schedule an appointment</a></li>
+              <li><a href="https://www.therapyportal.com/p/fawpearl1/">Patient Portal</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a class="btn btn-accent" href="https://www.zocdoc.com/practice/fawpearl-health-services-188732" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg><span>Book online</span></a>
+        <a class="btn btn-start" href="https://www.zocdoc.com/practice/fawpearl-health-services-188732" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Book online</span></a>
+        <a class="btn btn-signin" href="https://www.therapyportal.com/p/fawpearl1/"><svg class="icon" aria-hidden="true"><use href="#i-login"></use></svg><span>Sign in</span></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
           <span class="bars" aria-hidden="true"></span>
           <span class="screen-reader-text">Menu</span>
@@ -118,8 +130,8 @@
     </section>
 
     <!-- ===== Our specialties =====
-         To add or remove one, copy or delete an <li class="spec-tile"> line. -->
-    <section class="section specialties" aria-labelledby="specialties-title">
+         Each tile opens its own page in the specialties folder. To add one, copy a tile line and a page. -->
+    <section class="section specialties" id="specialties" aria-labelledby="specialties-title">
       <div class="wrap">
         <div class="spec-head">
           <div class="spec-intro">
@@ -132,14 +144,14 @@
           </aside>
         </div>
         <ul class="spec-grid">
-          <li class="spec-tile reveal"><span>ADHD</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M10 30 C14 8 22 42 28 18 S38 38 44 14 S54 32 56 22"/></svg></li>
-          <li class="spec-tile reveal"><span>Anxiety</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M33 24 a4 4 0 0 1 8 0 a8 8 0 0 1 -16 0 a12 12 0 0 1 24 0 a16 16 0 0 1 -32 0 a20 20 0 0 1 40 0"/></svg></li>
-          <li class="spec-tile reveal"><span>Bipolar disorder</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M8 20 q6 -12 12 0 t12 0 t12 0 t12 0"/><path d="M8 32 q6 12 12 0 t12 0 t12 0 t12 0"/></svg></li>
-          <li class="spec-tile reveal"><span>Depression</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M18 30 a8 8 0 0 1 2 -15 a10 10 0 0 1 18 -3 a8 8 0 0 1 8 18 Z"/><path d="M24 36 l-2 6 M32 36 l-2 6 M40 36 l-2 6"/></svg></li>
-          <li class="spec-tile reveal"><span>Insomnia</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M40 8 a16 16 0 1 0 14 24 a12 12 0 0 1 -14 -24 Z"/><path d="M12 12 h7 l-7 8 h7"/></svg></li>
-          <li class="spec-tile reveal"><span>Life transitions</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M8 36 C20 36 20 14 32 14 S44 34 56 34"/><path d="M50 28 l6 6 l-6 6"/></svg></li>
-          <li class="spec-tile reveal"><span>OCD</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M14 13 h36 M14 20 h36 M14 27 h36 M14 34 h36"/></svg></li>
-          <li class="spec-tile reveal"><span>Trauma &amp; PTSD</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M12 12 C32 8 50 11 50 15 S16 19 16 23 S48 25 48 29 S22 33 24 36 S42 38 38 41"/></svg></li>
+          <li><a class="spec-tile reveal" href="specialties/adhd.html"><span>ADHD</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M10 30 C14 8 22 42 28 18 S38 38 44 14 S54 32 56 22"/></svg></a></li>
+          <li><a class="spec-tile reveal" href="specialties/anxiety.html"><span>Anxiety</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M33 24 a4 4 0 0 1 8 0 a8 8 0 0 1 -16 0 a12 12 0 0 1 24 0 a16 16 0 0 1 -32 0 a20 20 0 0 1 40 0"/></svg></a></li>
+          <li><a class="spec-tile reveal" href="specialties/bipolar-disorder.html"><span>Bipolar disorder</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M8 20 q6 -12 12 0 t12 0 t12 0 t12 0"/><path d="M8 32 q6 12 12 0 t12 0 t12 0 t12 0"/></svg></a></li>
+          <li><a class="spec-tile reveal" href="specialties/depression.html"><span>Depression</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M18 30 a8 8 0 0 1 2 -15 a10 10 0 0 1 18 -3 a8 8 0 0 1 8 18 Z"/><path d="M24 36 l-2 6 M32 36 l-2 6 M40 36 l-2 6"/></svg></a></li>
+          <li><a class="spec-tile reveal" href="specialties/insomnia.html"><span>Insomnia</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M40 8 a16 16 0 1 0 14 24 a12 12 0 0 1 -14 -24 Z"/><path d="M12 12 h7 l-7 8 h7"/></svg></a></li>
+          <li><a class="spec-tile reveal" href="specialties/life-transitions.html"><span>Life transitions</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M8 36 C20 36 20 14 32 14 S44 34 56 34"/><path d="M50 28 l6 6 l-6 6"/></svg></a></li>
+          <li><a class="spec-tile reveal" href="specialties/ocd.html"><span>OCD</span><svg class="doodle doodle-mint" viewBox="0 0 64 48" aria-hidden="true"><path d="M14 13 h36 M14 20 h36 M14 27 h36 M14 34 h36"/></svg></a></li>
+          <li><a class="spec-tile reveal" href="specialties/trauma.html"><span>Trauma &amp; PTSD</span><svg class="doodle doodle-aqua" viewBox="0 0 64 48" aria-hidden="true"><path d="M12 12 C32 8 50 11 50 15 S16 19 16 23 S48 25 48 29 S22 33 24 36 S42 38 38 41"/></svg></a></li>
         </ul>
       </div>
     </section>

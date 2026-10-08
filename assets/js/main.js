@@ -96,6 +96,8 @@ if (!('IntersectionObserver' in window) || reduceMotion) {
   );
   revealItems.forEach((item, i) => {
     item.style.transitionDelay = `${(i % 4) * 70}ms`;
+    // Once shown, drop the delay so hover effects respond straight away.
+    item.addEventListener('transitionend', () => { item.style.transitionDelay = ''; }, { once: true });
     observer.observe(item);
   });
   // Safety net: never leave content hidden.

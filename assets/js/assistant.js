@@ -77,6 +77,17 @@ const TOPICS = [
 
 /* ---------- You shouldn't need to change anything below ---------- */
 
+// The site's home folder, worked out from where this script lives, so links
+// work from pages in sub-folders (such as specialties/) too.
+const SITE_ROOT = new URL('../../', document.currentScript.src);
+const fixLinks = (el) => {
+  el.querySelectorAll('a[href], img[src]').forEach((node) => {
+    const attr = node.tagName === 'IMG' ? 'src' : 'href';
+    const value = node.getAttribute(attr);
+    if (!/^(https?:|tel:|mailto:|#|data:)/.test(value)) node.setAttribute(attr, new URL(value, SITE_ROOT).href);
+  });
+};
+
 (() => {
   const root = document.createElement('div');
   root.className = 'assistant';
@@ -100,6 +111,7 @@ const TOPICS = [
       </form>
       <p class="assistant-note">Please don't share personal or medical details here.</p>
     </section>`;
+  fixLinks(root);
   document.body.appendChild(root);
 
   const toggle = root.querySelector('.assistant-toggle');
@@ -112,7 +124,7 @@ const TOPICS = [
   const say = (html, from = 'bot') => {
     const bubble = document.createElement('div');
     bubble.className = `assistant-msg is-${from}`;
-    if (from === 'bot') bubble.innerHTML = html;
+    if (from === 'bot') { bubble.innerHTML = html; fixLinks(bubble); }
     else bubble.textContent = html;
     log.appendChild(bubble);
     log.scrollTop = log.scrollHeight;
