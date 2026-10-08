@@ -86,10 +86,14 @@ p { margin: 0 0 1em; }
 .site-header { position: sticky; top: 0; z-index: 60; background: rgba(255, 255, 255, .94); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid transparent; transition: box-shadow .2s ease, border-color .2s ease; }
 .site-header.is-scrolled { box-shadow: 0 8px 30px -18px rgba(14, 47, 82, .45); border-bottom-color: var(--line); }
 .header-inner { display: flex; align-items: center; gap: 1.5rem; min-height: 78px; }
-.brand-link { display: inline-flex; flex: none; line-height: 0; }
-.brand-logo { height: 64px; width: auto; }
-.brand-link--footer { border-radius: var(--r-sm); background: #fff; }
-@media (max-width: 520px) { .brand-logo { height: 54px; } }
+/* Logo: the Fawpearl mark with the practice name beside it */
+.brand-link { display: inline-flex; flex: none; align-items: center; gap: .75rem; text-decoration: none; color: var(--deep); }
+.brand-mark { height: 58px; width: auto; flex: none; }
+.brand-text { display: flex; flex-direction: column; line-height: 1; }
+.brand-name { font-family: var(--display); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--deep); }
+.brand-sub { margin-top: .3rem; font-size: 1rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); }
+@media (max-width: 1240px) { .brand-name { font-size: 1.7rem; } .brand-sub { font-size: .85rem; } .brand-mark { height: 50px; } }
+@media (max-width: 520px) { .brand-link { gap: .55rem; } .brand-mark { height: 44px; } .brand-name { font-size: 1.45rem; } .brand-sub { font-size: .72rem; letter-spacing: .12em; } }
 .site-nav { margin-left: auto; }
 .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .3rem; }
 .site-nav li { position: relative; }
@@ -359,8 +363,9 @@ p { margin: 0 0 1em; }
 .site-footer a:hover { color: var(--accent); }
 .footer-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; padding-block: 1.5rem; }
 .footer-bar p { margin: 0; }
-.brand-link--footer { padding: .5rem .7rem; }
-.brand-link--footer .brand-logo { height: 52px; }
+.brand-link--footer .brand-mark { height: 52px; padding: .4rem; background: #fff; border-radius: var(--r-sm); box-sizing: content-box; }
+.brand-link--footer .brand-name { color: #fff; font-size: 1.6rem; }
+.brand-link--footer .brand-sub { color: var(--aqua); font-size: .8rem; }
 
 /* Mobile quick-action bar */
 .mobile-bar { display: none; }
@@ -432,3 +437,4 @@ p { margin: 0 0 1em; }
 	.assistant-toggle { padding: .85rem; }
 	.assistant-panel { max-height: calc(100vh - 7rem); }
 }
+@media (max-width: 760px) { .footer-bar { padding-bottom: 4.5rem; } }

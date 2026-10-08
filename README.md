@@ -50,6 +50,11 @@ the Cigna-blue button colour.
 Add Abimbola's headshot as `assets/images/provider.jpg` and change
 `provider-placeholder.svg` to `provider.jpg` in `index.html` and `about.html`.
 
+**Logo** – the header and footer show the logo mark (`assets/images/fawpearl-mark.png`)
+with the name written beside it as text. To change the wording, edit the `brand-name` and
+`brand-sub` lines in each page; to change its size, edit `.brand-name` and `.brand-sub` in
+`assets/css/style.css`.
+
 **Homepage photo** – replace `assets/images/hero.jpg` and `assets/images/hero.webp`
 (keep the names). Landscape photos about 1600 px wide work best.
 
