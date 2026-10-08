@@ -51,9 +51,11 @@ Add Abimbola's headshot as `assets/images/provider.jpg` and change
 `provider-placeholder.svg` to `provider.jpg` in `index.html` and `about.html`.
 
 **Logo** – the header and footer show the logo mark (`assets/images/fawpearl-mark.png`)
-with the name written beside it as text. To change the wording, edit the `brand-name` and
-`brand-sub` lines in each page; to change its size, edit `.brand-name` and `.brand-sub` in
-`assets/css/style.css`.
+with the name written beside it as text. To change the wording, edit the `brand-name`
+line in each page; to change its size, edit `.brand-name` in `assets/css/style.css`.
+
+**Specialties** – the "Our specialties" tiles are in `index.html`. Copy or delete one
+`<li class="spec-tile">` line to add or remove a condition.
 
 **Homepage photo** – replace `assets/images/hero.jpg` and `assets/images/hero.webp`
 (keep the names). Landscape photos about 1600 px wide work best.
