@@ -108,7 +108,7 @@ p { margin: 0 0 1em; }
 .menu-toggle[aria-expanded="true"] .bars { background: transparent; }
 .menu-toggle[aria-expanded="true"] .bars::before { transform: translateY(6px) rotate(45deg); }
 .menu-toggle[aria-expanded="true"] .bars::after { transform: translateY(-6px) rotate(-45deg); }
-@media (max-width: 1060px) {
+@media (max-width: 1180px) {
 	.menu-toggle { display: inline-block; }
 	.site-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--surface); border-bottom: 1px solid var(--line); padding: .75rem var(--gutter) 1.25rem; box-shadow: var(--shadow-sm); }
 	.site-nav.open { display: block; }
@@ -473,8 +473,8 @@ p { margin: 0 0 1em; }
 .btn-signin { background: var(--accent); color: #fff; }
 .btn-signin:hover { background: var(--accent-hover); color: #fff; }
 .header-actions .btn .icon { width: 18px; height: 18px; stroke-width: 2.2; }
-@media (min-width: 1061px) and (max-width: 1240px) { .site-nav a { padding: .55rem .6rem; } .header-actions .btn { padding-inline: 1rem; } }
-@media (max-width: 1060px) { .site-nav .has-sub > a .icon { display: none; } .site-nav .sub-menu { margin-bottom: .4rem; } }
+@media (min-width: 1181px) { .site-nav a { padding: .55rem .6rem; } .site-nav ul { gap: .1rem; } .header-inner { gap: 1rem; } .header-actions .btn { padding-inline: 1rem; } }
+@media (max-width: 1180px) { .site-nav .has-sub > a .icon { display: none; } .site-nav .sub-menu { margin-bottom: .4rem; } }
 @media (max-width: 520px) { .header-actions .btn-signin, .header-actions .btn-start { display: none; } }
 
 /* ---------- Specialty tiles: lift on hover ---------- */
@@ -509,3 +509,23 @@ a.spec-tile .doodle { transition: transform .35s ease; }
 .spec-chips a:hover { transform: translateY(-3px); background: var(--deep-3); }
 .spec-chips .doodle { width: 34px; height: 26px; stroke-width: 3.4; }
 .crisis-note { text-align: center; color: var(--muted); font-size: .92rem; margin: 1.5rem auto 0; max-width: 46rem; }
+
+/* ---------- Refer a Patient page ---------- */
+.refer-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+@media (max-width: 960px) { .refer-layout { grid-template-columns: 1fr; } }
+.refer-info h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.refer-info > p { color: var(--muted); }
+.refer-steps { list-style: none; margin: 1.75rem 0; padding: 0; display: grid; gap: 1.1rem; }
+.refer-steps li { display: flex; gap: 1rem; align-items: flex-start; }
+.refer-steps li > span { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--deep); color: #fff; font-weight: 700; }
+.refer-steps p { margin: .2rem 0 0; color: var(--muted); }
+.refer-note { background: var(--mist); border-radius: var(--r-md); padding: 1.2rem 1.4rem; margin-bottom: 1rem; }
+.refer-note h3 { font-size: 1.1rem; margin-bottom: .35rem; }
+.refer-note p { margin: 0; color: var(--muted); }
+.refer-card fieldset { border: 0; margin: 0 0 .5rem; padding: 0; display: grid; gap: 1rem; min-width: 0; }
+.refer-card legend { font: 600 1.15rem var(--display); color: var(--deep); padding: 0; margin-bottom: .9rem; }
+.refer-card .field label span { color: var(--teal); }
+.refer-commit h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.refer-commit p { color: var(--muted); }
+@media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+.site-nav a { white-space: nowrap; }

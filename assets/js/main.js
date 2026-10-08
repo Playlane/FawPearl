@@ -193,3 +193,37 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     }, CAROUSEL_SPEED);
   }
 });
+
+/* ---------- Referral form (refer.html) ---------- */
+// The referral form collects patient health information, so it only sends once it is
+// connected to a HIPAA-compliant form service (see the note above the form in refer.html).
+const referralForm = document.querySelector('[data-referral-form]');
+
+if (referralForm) {
+  const status = referralForm.querySelector('.form-status');
+  const showStatus = (text, ok) => {
+    status.hidden = false;
+    status.className = `form-status ${ok ? 'is-success' : 'is-error'}`;
+    status.textContent = text;
+  };
+
+  referralForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (referralForm.hasAttribute('data-not-connected') || !referralForm.getAttribute('action')) {
+      showStatus('Online referrals are not switched on yet. Please call +1 (301) 532-5849 to refer a patient.', false);
+      return;
+    }
+    try {
+      const response = await fetch(referralForm.action, {
+        method: 'POST',
+        body: new FormData(referralForm),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error();
+      referralForm.reset();
+      showStatus('Thank you. We received your referral and will contact the patient to schedule.', true);
+    } catch {
+      showStatus('Sorry, something went wrong. Please call +1 (301) 532-5849.', false);
+    }
+  });
+}

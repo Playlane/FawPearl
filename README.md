@@ -106,6 +106,15 @@ list at the top to change the buttons and answers. It uses ready-made answers on
 no AI, nothing typed is stored or sent anywhere, and crisis words (e.g. "suicide")
 always show 988 and 911.
 
+## Referral form (refer.html)
+
+The "Refer a Patient" page has a referral form for providers. It asks for patient health
+information, so it is **switched off** until it is connected to a HIPAA-compliant form service
+that has signed a Business Associate Agreement (BAA) with Fawpearl. Do not connect it to
+Formspree's free plan or to ordinary email. When you have the service, put its address in the
+form's `action=""` and remove `data-not-connected` (or replace the form with the service's own
+embed code). Until then, the form asks referrers to call.
+
 ## Contact form
 
 The form on `contact.html` sends messages through [Formspree](https://formspree.io)
