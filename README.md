@@ -50,7 +50,8 @@ the Cigna-blue button colour.
 Add Abimbola's headshot as `assets/images/provider.jpg` and change
 `provider-placeholder.svg` to `provider.jpg` in `index.html` and `about.html`.
 
-**Logo** – the header and footer show the logo mark (`assets/images/fawpearl-mark.png`)
+**Logo** – the header and footer show the Sprig logo mark (`assets/images/fawpearl-sprig.svg`, and
+`fawpearl-sprig-light.svg` for the dark footer)
 with the name written beside it as text. To change the wording, edit the `brand-name`
 line in each page; to change its size, edit `.brand-name` in `assets/css/style.css`.
 

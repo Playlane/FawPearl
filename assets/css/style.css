@@ -87,11 +87,11 @@ p { margin: 0 0 1em; }
 .site-header.is-scrolled { box-shadow: 0 8px 30px -18px rgba(14, 47, 82, .45); border-bottom-color: var(--line); }
 .header-inner { display: flex; align-items: center; gap: 1.5rem; min-height: 78px; }
 /* Logo: the Fawpearl mark with the practice name beside it */
-.brand-link { display: inline-flex; flex: none; align-items: center; gap: .75rem; text-decoration: none; color: var(--deep); }
-.brand-mark { height: 58px; width: auto; flex: none; }
-.brand-name { font-family: var(--display); font-size: 2.2rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; color: var(--deep); }
-@media (max-width: 1240px) { .brand-name { font-size: 1.9rem; } .brand-mark { height: 50px; } }
-@media (max-width: 520px) { .brand-link { gap: .55rem; } .brand-mark { height: 44px; } .brand-name { font-size: 1.6rem; } }
+.brand-link { display: inline-flex; flex: none; align-items: center; gap: .55rem; text-decoration: none; color: var(--deep); }
+.brand-mark { height: 50px; width: auto; flex: none; }
+.brand-name { font-family: "Fraunces", Georgia, serif; font-size: 2.3rem; font-weight: 500; line-height: 1; letter-spacing: -0.01em; color: var(--deep); }
+@media (max-width: 1240px) { .brand-name { font-size: 2rem; } .brand-mark { height: 44px; } }
+@media (max-width: 520px) { .brand-link { gap: .45rem; } .brand-mark { height: 38px; } .brand-name { font-size: 1.75rem; } }
 .site-nav { margin-left: auto; }
 .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .3rem; }
 .site-nav li { position: relative; }
@@ -361,8 +361,8 @@ p { margin: 0 0 1em; }
 .site-footer a:hover { color: var(--accent); }
 .footer-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; padding-block: 1.5rem; }
 .footer-bar p { margin: 0; }
-.brand-link--footer .brand-mark { height: 52px; padding: .4rem; background: #fff; border-radius: var(--r-sm); box-sizing: content-box; }
-.brand-link--footer .brand-name { color: #fff; font-size: 1.7rem; }
+.brand-link--footer .brand-mark { height: 44px; }
+.brand-link--footer .brand-name { color: #fff; font-size: 1.9rem; }
 
 /* Mobile quick-action bar */
 .mobile-bar { display: none; }
