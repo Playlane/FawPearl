@@ -15,7 +15,7 @@ const ASSISTANT = {
   greeting:
     "Hi, I'm the Fawpearl assistant. I can help you book, check insurance or find information. What would you like to do?",
   fallback:
-    'I\'m not sure about that one. You can call us at <a href="tel:+13015325849">+1 (301) 532-5849</a> or <a href="contact.html">send us a message</a> and we\'ll help.',
+    'I\'m not sure about that one. You can call us at <a href="tel:+12405932260">+1 (240) 593-2260</a> or <a href="contact.html">send us a message</a> and we\'ll help.',
 };
 
 // Shown immediately if a visitor mentions self-harm or a crisis.
@@ -36,7 +36,7 @@ const TOPICS = [
     label: 'Do you take my insurance?',
     keywords: ['insurance', 'insured', 'coverage', 'aetna', 'cigna', 'blue', 'horizon', 'carefirst', 'bcbs', 'oscar', 'anthem', 'oxford', 'quest', 'medicare', 'medicaid', 'united', 'tricare', 'copay'],
     answer:
-      'We accept Oscar, Horizon BCBS, Cigna, CareFirst, Blue Cross Blue Shield of Massachusetts, Anthem BCBS, UnitedHealthcare, Oxford and Quest Behavioral Health. For other plans, we\'re happy to check your coverage before your first visit. Call <a href="tel:+13015325849">+1 (301) 532-5849</a> or email <a href="mailto:info@fawpearl.org">info@fawpearl.org</a> with your plan details. <a href="fees.html">See fees &amp; insurance →</a>',
+      'We accept Oscar, Horizon BCBS, Cigna, CareFirst, Blue Cross Blue Shield of Massachusetts, Anthem BCBS, UnitedHealthcare, Oxford and Quest Behavioral Health. For other plans, we\'re happy to check your coverage before your first visit. Call <a href="tel:+12405932260">+1 (240) 593-2260</a> or email <a href="mailto:info@fawpearl.org">info@fawpearl.org</a> with your plan details. <a href="fees.html">See fees &amp; insurance →</a>',
   },
   {
     label: 'Prices',
