@@ -48,7 +48,7 @@ the Cigna-blue button colour.
 
 **Photos** – replace a file in `assets/images/` with one of the same name.
 Add Abimbola's headshot as `assets/images/provider.jpg` and change
-`provider-placeholder.svg` to `provider.jpg` in `index.html` and `about.html`.
+`abimbola-shadare.jpg` (used in `index.html` and `about.html`).
 
 **Logo** – the header and footer show the Sprig logo mark (`assets/images/fawpearl-sprig.svg`, and
 `fawpearl-sprig-light.svg` for the dark footer)

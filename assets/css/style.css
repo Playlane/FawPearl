@@ -529,3 +529,6 @@ a.spec-tile .doodle { transition: transform .35s ease; }
 .refer-commit p { color: var(--muted); }
 @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
 .site-nav a { white-space: nowrap; }
+
+/* Specialty page photos: taller frame suits portrait photos */
+.split-media img.spec-photo { aspect-ratio: 4 / 5; }
