@@ -532,3 +532,13 @@ a.spec-tile .doodle { transition: transform .35s ease; }
 
 /* Specialty page photos: taller frame suits portrait photos */
 .split-media img.spec-photo { aspect-ratio: 4 / 5; }
+
+/* ---------- Privacy policy page ---------- */
+.policy h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin: 2.4rem 0 .8rem; }
+.policy h3 { font-size: 1.12rem; margin: 1.5rem 0 .5rem; }
+.policy p, .policy li { color: var(--muted); line-height: 1.7; }
+.policy ul { padding-left: 1.2rem; display: grid; gap: .5rem; }
+.policy li strong { color: var(--ink); }
+.policy-contact { list-style: none; padding: 0 !important; }
+.policy-contact li { display: flex; align-items: center; gap: .6rem; }
+.policy-contact .icon { color: var(--teal); }

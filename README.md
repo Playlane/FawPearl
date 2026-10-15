@@ -37,7 +37,7 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 | "Book online" (Zocdoc) | `https://www.zocdoc.com/practice/fawpearl-health-services-188732` |
 | Zocdoc link | `https://www.zocdoc.com/about/request/` |
 | Patient portal | `https://www.therapyportal.com/p/fawpearl1/` |
-| Privacy policy | `https://fawpearl.org/privacy-policy/` |
+| Privacy policy | `privacy.html` |
 
 **Opening hours** – edit the `HOURS` list at the top of `assets/js/main.js`
 (used for "Open today" in the top bar), and the hours table in `contact.html`.
@@ -120,12 +120,9 @@ embed code). Until then, the form asks referrers to call.
 The form on `contact.html` sends messages through [Formspree](https://formspree.io)
 (free plan available):
 
-1. Create a Formspree account and a new form, with your email as the recipient.
-2. Copy the form ID (it looks like `xyzabcd`).
-3. In `contact.html`, replace `YOUR-FORM-ID` in
-   `action="https://formspree.io/f/YOUR-FORM-ID"` with your ID.
-
-Until then the form asks visitors to call or email instead. Patients may type
+It is connected to the Formspree form `meaevkzp`, so messages go to the email address on
+that Formspree account. To use a different form, change the ID in
+`action="https://formspree.io/f/meaevkzp"` in `contact.html`. Patients may type
 health details into the form, so check that your form service and email meet
 your HIPAA obligations (Formspree offers a HIPAA plan), or remove the form and
 keep phone and email only.
