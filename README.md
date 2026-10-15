@@ -32,7 +32,7 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 | --- | --- |
 | Phone | `+1 (240) 593-2260` and `tel:+12405932260` |
 | Email | `info@fawpearl.org` |
-| "Schedule an appointment" (TherapyPortal availability) | `https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityScreen=availability&AvailabilityClinician=1028716&AvailabilityLocation=676233&AvailabilityApptType=2&AvailabilityIsExistingPatient=false` |
+| "Schedule an appointment" (TherapyPortal availability) | `https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityTelehealthType=1` |
 | Patient Portal (existing patients) | `https://www.therapyportal.com/p/fawpearl1/` |
 | "Book online" (Zocdoc) | `https://www.zocdoc.com/practice/fawpearl-health-services-188732` |
 | Zocdoc link | `https://www.zocdoc.com/about/request/` |
