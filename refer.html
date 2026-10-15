@@ -109,7 +109,7 @@
           <h2>How referrals work</h2>
           <p>Fawpearl provides online psychiatric evaluations, medication management and talk therapy with a board-certified psychiatric nurse practitioner. We welcome referrals from primary care providers, therapists, hospitals, care facilities and community partners.</p>
           <ol class="refer-steps">
-            <li><span>1</span><div><strong>Send the referral</strong><p>Complete the secure form, or call us with the patient's details.</p></div></li>
+            <li><span>1</span><div><strong>Send the referral</strong><p>Request a call back below, or call us directly. We take the patient's details by phone.</p></div></li>
             <li><span>2</span><div><strong>We contact your patient</strong><p>We reach out to schedule a video visit, usually within the week.</p></div></li>
             <li><span>3</span><div><strong>We keep you in the loop</strong><p>With your patient's consent, we share updates and coordinate care with you.</p></div></li>
           </ol>
@@ -124,122 +124,67 @@
           <p class="muted">Your patient can also book directly: <a href="https://www.zocdoc.com/practice/fawpearl-health-services-188732" target="_blank" rel="noopener">Book online</a> or <a href="https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityScreen=availability&amp;AvailabilityClinician=1028716&amp;AvailabilityLocation=676233&amp;AvailabilityApptType=2&amp;AvailabilityIsExistingPatient=false" target="_blank" rel="noopener">schedule an appointment</a>.</p>
         </div>
 
-        <!-- ===== Referral form =====
-             IMPORTANT: this form collects patient health information. Connect it ONLY to a
-             HIPAA-compliant form service that has signed a Business Associate Agreement (BAA)
-             with Fawpearl. Put that service's address in action="" below and remove
-             data-not-connected. Until then, the form stays switched off and asks people to call. -->
+        <!-- ===== Referral request form =====
+             This form only asks for the referring provider's contact details. It must NOT ask for
+             patient names or health information, because it is sent through Formspree by email
+             (not a HIPAA service). Fawpearl calls the provider back to take the patient's details.
+             To accept full patient referrals online, use a HIPAA-compliant service with a signed BAA. -->
         <div class="contact-form-card refer-card">
-          <h2>Referral form</h2>
-          <p class="muted">Fields marked * are required.</p>
-          <form class="form" action="" method="post" data-referral-form data-not-connected>
-            <fieldset>
-              <legend>Patient</legend>
-              <div class="form-row">
-                <div class="field">
-                  <label for="patient_first_name">Patient's first name <span aria-hidden="true">*</span></label>
-                  <input id="patient_first_name" name="patient_first_name" type="text" autocomplete="off" required>
-                </div>
-                <div class="field">
-                  <label for="patient_last_name">Patient's last name <span aria-hidden="true">*</span></label>
-                  <input id="patient_last_name" name="patient_last_name" type="text" autocomplete="off" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="field">
-                  <label for="patient_dob">Date of birth <span aria-hidden="true">*</span></label>
-                  <input id="patient_dob" name="patient_dob" type="date" autocomplete="off" required>
-                </div>
-                <div class="field">
-                  <label for="patient_state">State the patient lives in <span aria-hidden="true">*</span></label>
-                  <input id="patient_state" name="patient_state" type="text" autocomplete="off" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="field">
-                  <label for="patient_email">Patient's email <span aria-hidden="true">*</span></label>
-                  <input id="patient_email" name="patient_email" type="email" autocomplete="off" required>
-                </div>
-                <div class="field">
-                  <label for="patient_phone">Patient's mobile phone <span aria-hidden="true">*</span></label>
-                  <input id="patient_phone" name="patient_phone" type="tel" autocomplete="off" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="field">
-                  <label for="patient_insurance">Patient's insurance</label>
-                  <select id="patient_insurance" name="patient_insurance">
-                    <option value="">Select a plan</option>
-                    <option>Anthem Blue Cross Blue Shield</option>
-                    <option>Blue Cross Blue Shield of Massachusetts</option>
-                    <option>CareFirst</option>
-                    <option>Cigna</option>
-                    <option>Horizon Blue Cross Blue Shield</option>
-                    <option>Oscar Health</option>
-                    <option>Oxford Health Plans</option>
-                    <option>Quest Behavioral Health</option>
-                    <option>UnitedHealthcare</option>
-                    <option>Self-pay</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="member_id">Member ID</label>
-                  <input id="member_id" name="member_id" type="text" autocomplete="off">
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Referral</legend>
+          <h2>Request a referral call</h2>
+          <p class="muted">Leave your details and we'll call you back, usually within one business day, to take the patient's information securely by phone. Please don't include patient names or health details here.</p>
+          <form class="form" action="https://formspree.io/f/meaevkzp" method="post" data-referral-form>
+            <input type="hidden" name="_subject" value="New referral request (Refer a Patient page)">
+            <input type="hidden" name="form" value="Referral request">
+            <div class="hp" aria-hidden="true">
+              <label for="ref_company">Company</label>
+              <input id="ref_company" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="referrer_name">Your name <span aria-hidden="true">*</span></label>
+              <input id="referrer_name" name="referrer_name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="referrer_practice">Practice or organization <span aria-hidden="true">*</span></label>
+              <input id="referrer_practice" name="referrer_practice" autocomplete="organization" required>
+            </div>
+            <div class="form-row">
               <div class="field">
-                <label for="reason">Reason for referral <span aria-hidden="true">*</span></label>
-                <select id="reason" name="reason" required>
+                <label for="referrer_phone">Phone <span aria-hidden="true">*</span></label>
+                <input id="referrer_phone" name="referrer_phone" type="tel" autocomplete="tel" required>
+              </div>
+              <div class="field">
+                <label for="referrer_email">Email <span aria-hidden="true">*</span></label>
+                <input id="referrer_email" name="referrer_email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="care_type">Type of care needed</label>
+                <select id="care_type" name="care_type">
                   <option value="">Select one</option>
                   <option>Psychiatric evaluation</option>
                   <option>Medication management</option>
                   <option>Talk therapy</option>
                   <option>Therapy and medication management</option>
-                  <option>Other</option>
+                  <option>Care for a facility's residents</option>
+                  <option>Not sure yet</option>
                 </select>
               </div>
               <div class="field">
-                <label for="care_needs">Anything we should know about the patient's needs?</label>
-                <textarea id="care_needs" name="care_needs" rows="4"></textarea>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Referring provider</legend>
-                <div class="field">
-                  <label for="referrer_name">Practice or provider name <span aria-hidden="true">*</span></label>
-                  <input id="referrer_name" name="referrer_name" type="text" autocomplete="organization" required>
-                </div>
-              <div class="form-row">
-                <div class="field">
-                  <label for="referrer_email">Email <span aria-hidden="true">*</span></label>
-                  <input id="referrer_email" name="referrer_email" type="email" autocomplete="email" required>
-                </div>
-                <div class="field">
-                  <label for="referrer_phone">Phone <span aria-hidden="true">*</span></label>
-                  <input id="referrer_phone" name="referrer_phone" type="tel" autocomplete="tel" required>
-                </div>
-              </div>
-              <div class="field">
-                <label for="heard">How did you hear about us?</label>
-                <select id="heard" name="heard">
-                  <option value="">Select one</option>
-                  <option>Colleague or another provider</option>
-                  <option>Patient</option>
-                  <option>Online search</option>
-                  <option>Zocdoc</option>
-                  <option>Other</option>
+                <label for="best_time">Best time to call you</label>
+                <select id="best_time" name="best_time">
+                  <option value="">Any time</option>
+                  <option>Morning</option>
+                  <option>Afternoon</option>
+                  <option>Evening</option>
                 </select>
               </div>
-            </fieldset>
+            </div>
             <label class="consent">
-              <input type="checkbox" name="consent" value="yes" required>
-              <span>The patient has agreed to be referred and contacted by Fawpearl Health Services.</span>
+              <input type="checkbox" name="no_patient_details" value="confirmed" required>
+              <span>I haven't included any patient names or health details in this form.</span>
             </label>
-            <button type="submit">Submit referral</button>
+            <button type="submit">Request a call back</button>
             <p class="form-status" role="status" hidden></p>
           </form>
         </div>

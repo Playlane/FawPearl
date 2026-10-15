@@ -195,8 +195,8 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
 });
 
 /* ---------- Referral form (refer.html) ---------- */
-// The referral form collects patient health information, so it only sends once it is
-// connected to a HIPAA-compliant form service (see the note above the form in refer.html).
+// The referral request form only collects the referring provider's contact details.
+// It stays switched off if data-not-connected is added or the action is empty.
 const referralForm = document.querySelector('[data-referral-form]');
 
 if (referralForm) {
@@ -221,7 +221,7 @@ if (referralForm) {
       });
       if (!response.ok) throw new Error();
       referralForm.reset();
-      showStatus('Thank you. We received your referral and will contact the patient to schedule.', true);
+      showStatus('Thank you. We received your request and will call you back, usually within one business day.', true);
     } catch {
       showStatus('Sorry, something went wrong. Please call +1 (240) 593-2260.', false);
     }

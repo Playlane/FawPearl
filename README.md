@@ -108,12 +108,14 @@ always show 988 and 911.
 
 ## Referral form (refer.html)
 
-The "Refer a Patient" page has a referral form for providers. It asks for patient health
-information, so it is **switched off** until it is connected to a HIPAA-compliant form service
-that has signed a Business Associate Agreement (BAA) with Fawpearl. Do not connect it to
-Formspree's free plan or to ordinary email. When you have the service, put its address in the
-form's `action=""` and remove `data-not-connected` (or replace the form with the service's own
-embed code). Until then, the form asks referrers to call.
+The "Refer a Patient" page has a short "Request a referral call" form. It only asks for the
+referring provider's name, practice, phone and email (no patient details), and sends through
+the same Formspree form as the Contact page (`meaevkzp`). Fawpearl then calls the provider back
+to take the patient's details by phone.
+
+Do not add patient name, date of birth, insurance or health questions to this form: Formspree
+email is not HIPAA-compliant. To accept full patient referrals online, use a HIPAA-compliant
+service with a signed Business Associate Agreement (for example Jotform Gold with HIPAA turned on).
 
 ## Contact form
 
