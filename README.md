@@ -147,6 +147,13 @@ needed; leave the build command empty.
 
 **Your existing hosting (cPanel)** – upload the files into `public_html`.
 
+## Search engines
+
+- `favicon.ico` and `assets/images/favicon-48/96/192.png` are the icons Google and browsers show.
+- `sitemap.xml` lists every page for Google. Add new pages to it.
+- The small folders such as `about-us/` and `contact-us/` only redirect old WordPress
+  addresses to the new pages. They can be deleted once Google has updated its results.
+
 ## Before going live
 
 - [ ] Turn on New Patient Requests and Calendar Sync in TherapyNotes (see below)
