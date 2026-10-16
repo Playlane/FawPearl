@@ -27,15 +27,25 @@ const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.getElementById('site-nav');
 
 if (menuToggle && siteNav) {
-  menuToggle.addEventListener('click', () => {
-    const isOpen = siteNav.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  // menu-open on <body> stops the page behind from scrolling and hides the
+  // bottom Call/Book bar and help bubble so the whole menu can be seen.
+  const setMenu = (open) => {
+    siteNav.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+    if (open) siteNav.scrollTop = 0;
+  };
+
+  menuToggle.addEventListener('click', () => setMenu(!siteNav.classList.contains('open')));
+
+  // Close the menu after tapping a link (e.g. #specialties on the same page).
+  siteNav.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setMenu(false);
   });
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && siteNav.classList.contains('open')) {
-      siteNav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+      setMenu(false);
       menuToggle.focus();
     }
   });

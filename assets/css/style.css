@@ -542,3 +542,10 @@ a.spec-tile .doodle { transition: transform .35s ease; }
 .policy-contact { list-style: none; padding: 0 !important; }
 .policy-contact li { display: flex; align-items: center; gap: .6rem; }
 .policy-contact .icon { color: var(--teal); }
+
+/* ---------- Mobile menu: scroll inside the menu panel ---------- */
+@media (max-width: 1180px) {
+	.site-nav { max-height: calc(100vh - 78px); max-height: calc(100dvh - 78px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding-bottom: 2rem; }
+	body.menu-open { overflow: hidden; }
+	body.menu-open .mobile-bar, body.menu-open .assistant { display: none; }
+}
