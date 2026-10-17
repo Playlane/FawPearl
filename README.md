@@ -147,6 +147,14 @@ needed; leave the build command empty.
 
 **Your existing hosting (cPanel)** – upload the files into `public_html`.
 
+## Social media links
+
+The footer of every page has Instagram, Facebook, X (Twitter), TikTok and YouTube icons.
+They point to each site's home page until you add your own profiles: in every page, find
+`<ul class="social-links">` and replace each `href="..."` with your profile address (for
+example `https://www.instagram.com/fawpearl`). To remove a platform, delete its `<li>` line.
+Icons are from Simple Icons (CC0).
+
 ## States we serve
 
 The "States we serve" map and list are on `index.html`. To add or remove a state, add or

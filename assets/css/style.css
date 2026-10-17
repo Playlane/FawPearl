@@ -562,3 +562,10 @@ a.spec-tile .doodle { transition: transform .35s ease; }
 @media (min-width: 900px) { .states-list { columns: 3; max-width: 760px; } }
 .states-map .dc-marker { fill: transparent; stroke: none; }
 .states-map .dc-marker.is-served { fill: var(--accent); stroke: #fff; stroke-width: 2; }
+
+/* ---------- Footer social links ---------- */
+.social-links { list-style: none; margin: 0 0 0 auto; padding: 0; display: flex; gap: .6rem; }
+.social-links a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, .08); color: var(--on-dark); transition: background .2s ease, color .2s ease, transform .2s ease; }
+.social-links a:hover, .social-links a:focus-visible { background: var(--accent); color: #fff; transform: translateY(-2px); }
+.social-icon { width: 18px; height: 18px; fill: currentColor; }
+@media (max-width: 760px) { .social-links { margin-left: 0; } }
