@@ -147,6 +147,13 @@ needed; leave the build command empty.
 
 **Your existing hosting (cPanel)** – upload the files into `public_html`.
 
+## States we serve
+
+The "States we serve" map and list are on `index.html`. To add or remove a state, add or
+delete one `<li>` line in the list under "States we serve"; the map highlights the listed
+states automatically. Use the full state name (for example `New York`). Only list states
+where Abimbola holds an active nurse practitioner license.
+
 ## Search engines
 
 - `favicon.ico` and `assets/images/favicon-48/96/192.png` are the icons Google and browsers show.

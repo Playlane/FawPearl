@@ -237,3 +237,13 @@ if (referralForm) {
     }
   });
 }
+
+/* ---------- States we serve: highlight listed states on the map ---------- */
+document.querySelectorAll('[data-states-list]').forEach((list) => {
+  const map = list.parentElement.querySelector('.states-map');
+  if (!map) return;
+  const served = [...list.querySelectorAll('li')].map((li) => (li.dataset.state || li.textContent).trim().toLowerCase());
+  map.querySelectorAll('[data-state]').forEach((path) => {
+    path.classList.toggle('is-served', served.includes(path.dataset.state.toLowerCase()));
+  });
+});
