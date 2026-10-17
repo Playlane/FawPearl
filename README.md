@@ -30,7 +30,7 @@ your editor's *Find in files / Replace all* (in VS Code: `Ctrl+Shift+H`):
 
 | What | Search for |
 | --- | --- |
-| Phone | `+1 (240) 593-2260` and `tel:+12405932260` |
+| Phone | `+1 (301) 532-5849` and `tel:+13015325849` |
 | Email | `info@fawpearl.org` |
 | "Schedule an appointment" (TherapyPortal availability) | `https://www.therapyportal.com/p/fawpearl1/appointments/availability/#AvailabilityTelehealthType=1` |
 | Patient Portal (existing patients) | `https://www.therapyportal.com/p/fawpearl1/` |

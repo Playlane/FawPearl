@@ -220,7 +220,7 @@ if (referralForm) {
   referralForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (referralForm.hasAttribute('data-not-connected') || !referralForm.getAttribute('action')) {
-      showStatus('Online referrals are not switched on yet. Please call +1 (240) 593-2260 to refer a patient.', false);
+      showStatus('Online referrals are not switched on yet. Please call +1 (301) 532-5849 to refer a patient.', false);
       return;
     }
     try {
@@ -233,7 +233,7 @@ if (referralForm) {
       referralForm.reset();
       showStatus('Thank you. We received your request and will call you back, usually within one business day.', true);
     } catch {
-      showStatus('Sorry, something went wrong. Please call +1 (240) 593-2260.', false);
+      showStatus('Sorry, something went wrong. Please call +1 (301) 532-5849.', false);
     }
   });
 }
